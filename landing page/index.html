@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WhatsApp Storefront Builder</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="google_translate_element" style="display: none;"></div>
+
+  <header>
+    <div class="container">
+      <h1>📦 Build Your WhatsApp Store in 5 Minutes</h1>
+      <p>No coding. No website. Just your product images — we do the rest.</p>
+      <a href="#cta" class="btn">Get Early Access</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>📤 Send Product Photos</h3>
+          <p>Send product images and prices to our WhatsApp bot — just like you already do.</p>
+        </div>
+        <div class="feature">
+          <h3>🌐 Get Your Store Link</h3>
+          <p>We create a mini online store you can share — no app, no website needed.</p>
+        </div>
+        <div class="feature">
+          <h3>📲 Track Orders on WhatsApp</h3>
+          <p>Buyers place orders, pay online, and you get notified on WhatsApp directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo">
+  <div class="container">
+    <h2>📱 See It In Action</h2>
+    <p>This is what your selling experience could look like:</p>
+
+    <div class="demo-grid">
+      <div class="demo-box">
+        <h3>🧵 Step 1: Seller WhatsApp Chat</h3>
+        <img src="demo-whatsapp.png" alt="Seller WhatsApp Chat" />
+        <p>You send product images & prices to the bot.</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>🌐 Step 2: Auto-generated Store</h3>
+        <img src="demo-store.png" alt="Storefront Preview" />
+        <p>A clean store is created and you get a shareable link.</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>📬 Step 3: Customer Orders</h3>
+        <img src="demo-order.png" alt="Customer Order Message" />
+        <p>Order confirmation and updates go directly to WhatsApp.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+
+  <section id="cta">
+    <div class="container">
+      <h2>Be Among the First 50 Sellers</h2>
+      <p>We’re offering free early access. If you sell on WhatsApp, this is built for you!</p>
+      <a href="https://docs.google.com/forms/d/14mSHdr0e8YWeIJ2PlOupVQHbeB8p9SuKNCY6tJvCfrk/edit" class="btn" target="_blank">Join the Waitlist</a>
+    </div>
+  </section>
+
+  <footer>
+    <center><p>Made with ❤️ for India’s micro-entrepreneurs.</p>
+    <!-- <a href="https://wa.me/9113798592" target="_blank" class="btn">Chat on WhatsApp</a></center> -->
+
+  </footer>
+  <div id="lang-banner" style="display: none; background: #fef3c7; padding: 1rem; text-align: center; position: fixed; bottom: 0; width: 100%; z-index: 999;">
+  <span id="lang-message">Would you like to view this page in your language?</span>
+  <button id="switch-lang" style="margin-left: 1rem;">Switch</button>
+  <button id="dismiss-lang" style="margin-left: 0.5rem;">No Thanks</button>
+</div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const userLang = (navigator.language || navigator.userLanguage).split('-')[0];
+    const supportedLangs = {
+      'hi': 'Hindi',
+      'bn': 'Bengali',
+      'ta': 'Tamil',
+      'te': 'Telugu',
+      'gu': 'Gujarati',
+      'mr': 'Marathi',
+      'kn': 'Kannada',
+      'ml': 'Malayalam',
+      'pa': 'Punjabi'
+    };
+
+    if (userLang !== 'en' && supportedLangs[userLang]) {
+      document.getElementById('lang-message').textContent =
+        `Would you like to view this page in ${supportedLangs[userLang]}?`;
+      document.getElementById('lang-banner').style.display = 'block';
+
+      document.getElementById('switch-lang').addEventListener('click', () => {
+        const interval = setInterval(() => {
+          const selectEl = document.querySelector("select.goog-te-combo");
+          if (selectEl) {
+            selectEl.value = userLang;
+            selectEl.dispatchEvent(new Event("change"));
+            clearInterval(interval);
+          }
+        }, 500);
+        document.getElementById('lang-banner').style.display = 'none';
+      });
+
+      document.getElementById('dismiss-lang').addEventListener('click', () => {
+        document.getElementById('lang-banner').style.display = 'none';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
